@@ -21,8 +21,8 @@ void setup() {
   size(1500, 500);
 
   p = new player();
-  hiscore = parseInt(loadStrings("hiscore.txt")[0]);
-  print(hiscore);
+  //hiscore = parseInt(loadStrings("hiscore.txt")[0]);
+  //print(hiscore);
 
   obstacles[0] = new Obstacle(width + 1000);
   obstacles[1] = new Obstacle(width + 1700);

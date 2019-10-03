@@ -2,23 +2,29 @@ class player {
   public boolean jumping=false;
   private float verticalSpeed;
     private final float gravity=0.9;
+    
+  private int imageIndex = 0;
 
   private float h = 100;
   private float levelHeight = 500-h-35;
   private float y = levelHeight;
   private float w = 50;
 
-  PImage adventurerRun;
   PImage [] sprite = new PImage[6];
   {
     for (int i = 0; i < 6; i=i+1) {
-      sprite[i] = loadImage("adventurerRun" + i + ".png");
+      sprite[i] = loadImage("./data/adventurerRun" + i + ".png");
     }
   }
 
   public void draw() {
-    fill(0);
-    image(adventurerRun, 50, y, w, h);
+    if(imageIndex >= sprite.length - 1){
+      imageIndex = 0;
+    }else{
+      ++imageIndex;
+    }
+    
+    image(sprite[imageIndex], 50, y, w, h);
     gravity();
   }
 
@@ -30,7 +36,7 @@ class player {
       PImage [] sprite = new PImage[4];
       {
         for (int i = 0; i < 4; i=i+1) {
-          sprite[i] = loadImage("adventurerJump" + i + ".png");
+          sprite[i] = loadImage("./data/adventurerJump" + i + ".png");
         }
       }
     }
